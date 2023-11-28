@@ -1,5 +1,10 @@
 import React from "react";
-import ChristmasList from "./ChristmasList/ChristmasList";
+import { Route, Routes, Navigate } from 'react-router-dom'
+import ChristmasList from "./ChristmasList";
+import Home from "./Home";
+import About from "./About";
+import Staff from "./Staff";
+import Contact from "./Contact";
 import reactLogo from "../../assets/react.svg";
 import viteLogo from "../../assets/vite.svg";
 
@@ -16,7 +21,15 @@ const Main = () => {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <ChristmasList />
+      <Routes>
+        <Route path='/' element={<ChristmasList />} />
+        <Route path='/list' element={<ChristmasList />} />
+        <Route path='/about' element={<About/>} />
+        <Route path='/staff' element={<Staff/>} />
+        <Route path='/contact' element={<Contact/>} />
+        <Route path='/*' element={<Navigate to={'/'} />} />
+      </Routes>
+
     </main>
   )
 };
