@@ -5,7 +5,6 @@ import Footer from "./Components/Footer";
 import "./App.css";
 import Product from "./Components/Product";
 import { v4 as uuidv4 } from 'uuid';
-uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
 function App() {
   // const [count, setCount] = useState(0) //return [contador, modificador contadot]
@@ -31,7 +30,7 @@ function App() {
   const [data, setData] = useState({}); //Deseo actual
   const [list, setList] = useState(initialData); //[{}]lista deseos
 
-  const creatWish = () => {
+  const createWish = () => {
     alert("Pide tu deseo");
     const title = prompt("Introduce titulo");
     const price = prompt("Introduce precio");
@@ -59,13 +58,11 @@ function App() {
   };
 
 const clearWishes = () =>{
-
   setList([]); //vaciar lista de deseos (state)
 }
 
 
 const resetWishes = () =>{
-
   setList(initialData); //Recarga lista de deseos (state)
 }
 
@@ -110,7 +107,7 @@ const handleSubmit = (e) =>{
       </div>
 
       <h2>Lista de deseos</h2>
-      <button onClick={creatWish}>Pide tu deseo</button>
+      <button onClick={createWish}>Pide tu deseo</button>
       <button onClick={clearWishes}>Limpiar</button>
       <button onClick={resetWishes}>Recargar</button>
 
