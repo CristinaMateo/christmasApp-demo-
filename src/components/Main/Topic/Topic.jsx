@@ -3,11 +3,11 @@ import axios from 'axios'
 
 const Topic = () => {
 
-  const [value, setValue] = useState("thebridge"); // Para guardar el dato a buscar
-  const [posts, setPosts] = useState([]); // Para guardar los posts
+  const [value, setValue] = useState("christmas"); // Para guardar el dato a buscar, por defecto busca ese topic
+  const [posts, setPosts] = useState([]); // Para guardar los posts, array de objetos a pintar
   
   // equivale a un componentDidUpdate()
-  useEffect(() => {
+  useEffect(() => { //salta cuando hay un cambio a buscar
     async function fetchData() {
       try{
         // Petición HTTP
@@ -15,9 +15,9 @@ const Topic = () => {
         const json = res.data;
 
         // Guarda en el array de posts el resultado. Procesa los datos
-        setPosts(json.data.children.map(c => c.data));
+        setPosts(json.data.children.map(c => c.data));//está guardando lo que viene de la api
       }catch(e){
-        setPosts([]) // No pintes nada 
+        setPosts([]) // No pintes nada en caso de que haya un error
       }
     }
 
