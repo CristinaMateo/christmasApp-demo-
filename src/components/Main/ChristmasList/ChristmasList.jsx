@@ -47,7 +47,7 @@ const ChristmasList = () => {
         title={whish.title}
         price={whish.price}
         url={whish.url}
-        deleteWish={()=>deleteWish(i)}
+        deleteWish={()=>deleteWish(i)} //función de callback
       />
     )); //se le pasa un index para pintar?
   };
