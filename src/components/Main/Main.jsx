@@ -5,6 +5,8 @@ import Home from "./Home";
 import About from "./About";
 import Staff from "./Staff";
 import Contact from "./Contact";
+import ChristmasCourse from "./ChristmasCourse";
+import Topic from "./Topic";
 import reactLogo from "../../assets/react.svg";
 import viteLogo from "../../assets/vite.svg";
 
@@ -27,6 +29,8 @@ const Main = () => {
         <Route path='/about' element={<About/>} />
         <Route path='/staff' element={<Staff/>} />
         <Route path='/contact' element={<Contact/>} />
+        <Route path='/course' element={<ChristmasCourse/>} />
+        <Route path='/topic' element={<Topic/>} />
         <Route path='/*' element={<Navigate to={'/'} />} />
       </Routes>
 
