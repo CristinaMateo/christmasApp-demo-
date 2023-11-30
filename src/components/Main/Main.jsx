@@ -24,7 +24,7 @@ const Main = () => {
         </a>
       </div>
       <Routes>
-        <Route path='/' element={<ChristmasList />} />
+        <Route path='/' element={<Home />} />
         <Route path='/list' element={<ChristmasList />} />
         <Route path='/about' element={<About/>} />
         <Route path='/staff' element={<Staff/>} />

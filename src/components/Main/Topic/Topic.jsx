@@ -27,7 +27,6 @@ const Topic = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(e.target.topic.value)
     setValue(e.target.topic.value) // Modificando el estado de Value
   };
 
