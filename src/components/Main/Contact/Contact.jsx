@@ -5,21 +5,23 @@ import CardContact from "./CardContact";
 const Contact = () => {
 //formcontact y cardcontact son hermanos, el padre es contact
 
-  const [message, setMessage] = useState(''); //estado a compartir, vive en el padre y se pasa a los hijos
+  const [data, setData] = useState({}); //estado a compartir, vive en el padre y se pasa a los hijos {message, date}
 
-  const clearMessage = () => {
-    setMessage("");
+  const clearData = () => {
+    setData({});
   }
 
 
-  const addMessage =(message) =>{
-    setMessage(message);
+  const addData =(message) =>{
+    const date = new Date().toDateString();
+    const data = {message,date};
+    setData(data);
   }
 
   return (
     <div>
-      <FormContact add={addMessage} /> {/*Sibling 1*/}
-      <CardContact message={message} clear={clearMessage} /> {/*Sibling 2*/}
+      <FormContact add={addData} /> {/*Sibling 1*/}
+      <CardContact data={data} clear={clearData} /> {/*Sibling 2*/}
     </div>
   
   )

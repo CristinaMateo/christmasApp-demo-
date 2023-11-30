@@ -1,12 +1,16 @@
 import React from 'react';
 
-const CardContact = ({ message, clear }) => {
+const CardContact = ({ data,clear }) => { //data --> {message, date}
   return (
     <div>
-      <p>Mensaje recibido: {message}</p>
-      <button onClick={clear}>Borrar</button>
+      {data.message?
+      <>
+        <p>Mensaje recibido: {data.message}</p>
+        <p>Fecha {data.date}</p>
+        <button onClick={clear}>Borrar</button>
+      </>:""}
     </div>
-  );
+  );//ternario, si no hay mensaje se esconde
 };
 
 export default CardContact;
