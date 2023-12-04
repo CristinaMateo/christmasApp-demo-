@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Switch } from '@mui/material'
 import { useContext} from 'react'
 import { UserContext } from '../../context/UserContext'
 import { ThemeContext } from '../../context/ThemeContext'
@@ -19,6 +20,11 @@ const Header = () => {
       <p>Hola, {username}</p>
       <button onClick={()=>updateUsername("")}>Logout</button>
       </>: "Bienvenido"}
+      <Switch  sx={{
+        marginTop:0.8,
+        marginRight: 1
+      }}
+      defaultChecked onClick={toggleTheme}/>
       
     </header>
   )
