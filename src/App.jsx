@@ -1,52 +1,51 @@
-import { BrowserRouter } from 'react-router-dom'
-import {useState } from 'react'
+import { useState } from 'react'
+import { Provider } from 'react-redux'
+import store from './redux/store'
 import { UserContext } from './context/UserContext'
-import { ThemeContext } from './context/ThemeContext'
+import { ThemeContext } from './context/ThemeContext';
+import { BrowserRouter } from "react-router-dom";
+import Snowfall from 'react-snowfall'
+
+
 import "./App.css";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import Header from "./Components/Header/Header";
+import Main from "./Components/Main/Main"
+import Footer from "./Components/Footer/Footer";
 
 
 function App() {
 
-  const [username, setUsername] = useState(''); //aquí guarda el nombre de usuario.
-  //hay un provider (App) y dos consumers (Header y Main)
+  const [username, setUsername] = useState('');
+  const [theme, setTheme] = useState("night");
+
   const updateUsername = (newUsername) => {
     setUsername(newUsername);
-  } //modifica el estado del username
+  };
 
-  const userData = { username, updateUsername };
-  
+
 
   // Actualizar tema
-  const [theme, setTheme] = useState("night");
-  const toggleTheme = ()=> theme=="day"? setTheme("night"):setTheme("day");
+  const toggleTheme = () => theme == "day" ? setTheme("night") : setTheme("day");
 
-  const themeData = {
-    theme,
-    toggleTheme
-  }
-
-
-
+  const themeData = { theme, toggleTheme }
+  const userData = { username, updateUsername }
   return (
     <>
-      <ThemeContext.Provider value={themeData}> 
-        <BrowserRouter >
-          <UserContext.Provider value={userData}>
-            <Header/>
-            <Main/>
-          </UserContext.Provider>
-        </BrowserRouter>
-        <Footer/>
-      </ThemeContext.Provider>
+      <Provider store={store}>
+        <ThemeContext.Provider value={themeData}>
+          <BrowserRouter>
+            <UserContext.Provider value={userData}>
+              <Snowfall />
+              <Header />
+              <Main />
+            </UserContext.Provider>
+          </BrowserRouter>
+          <Footer />
+        </ThemeContext.Provider>
+      </Provider>
     </>
-  );
+
+  )
 }
 
 export default App;
-
-
-
-
