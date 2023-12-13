@@ -12,10 +12,10 @@ const FormContact = ({ add}) => {
   };
 
   return (
-    <div>
+    <article>
       <input type="text" value={inputValue} onChange={handleChange} />
       <button onClick={handleClick}>Enviar mensaje</button>
-    </div>
+    </article>
   );
 };
 

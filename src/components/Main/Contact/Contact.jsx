@@ -19,10 +19,11 @@ const Contact = () => {
   }
 
   return (
-    <div>
+    <section>
+      <h1>Contact</h1>
       <FormContact add={addData} /> {/*Sibling 1*/}
       <CardContact data={data} clear={clearData} /> {/*Sibling 2*/}
-    </div>
+    </section>
   
   )
 };

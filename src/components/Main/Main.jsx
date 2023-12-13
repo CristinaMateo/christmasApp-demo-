@@ -1,7 +1,5 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import reactLogo from "../../assets/react.svg";
-import viteLogo from "../../assets/vite.svg";
 import ChristmasList from "./ChristmasList/ChristmasList";
 import About from "./About/About";
 import Contact from "./Contact/Contact";

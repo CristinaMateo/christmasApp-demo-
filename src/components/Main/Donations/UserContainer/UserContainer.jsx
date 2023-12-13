@@ -14,14 +14,14 @@ const UserContainer = () => {
       dispatch(fetchUsers())}
   }, [load,dispatch])
 
-  return <div>
+  return <section>
     <h2>Lista de usuarios</h2>
     {load===false?<button onClick={()=>setLoad(true)}>Descargar</button>:""}
     {userData.loading?<p>Cargando....</p>
       :userData.error?(<h2>{userData.error}</h2>)
       :userData.users.map((user,i)=><p key={i}>{user.name}</p>)
   }
-  </div>;
+  </section>;
 };
 
 export default UserContainer;
